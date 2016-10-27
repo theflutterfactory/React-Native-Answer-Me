@@ -1,2 +1,2 @@
-# React-Native-QA-King
+# React-Native-Answer-Me
 A QA app backed by Firebase
