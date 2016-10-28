@@ -7,7 +7,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-export default class SignIn extends Component {
+export default class SignUp extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,16 +30,14 @@ export default class SignIn extends Component {
                     underlineColorAndroid={'transparent'}
                     onChangeText={(text) => this.setState({password: text})}/>
                 <TouchableOpacity style={styles.buttonContainer}>
-                    <Text style={styles.button}>Sign In</Text>
+                    <Text style={styles.button}>Sign Up</Text>
                 </TouchableOpacity>
                 <View style={styles.links}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigator.push({name: 'signUp'})}>
-                        <Text style={styles.link}>Sign Up</Text>
+                        onPress={() => this.props.navigator.pop()}>
+                        <Text style={styles.link}>Already a member? Sign In</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <Text style={styles.link}>Forgot Password</Text>
-                    </TouchableOpacity>
+
                 </View>
             </View>
         );
@@ -51,7 +49,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 40
+        padding: 40,
+        backgroundColor: 'white'
     },
     input: {
         width: 250,
