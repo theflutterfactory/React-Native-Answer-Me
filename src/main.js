@@ -4,10 +4,12 @@ import {
 } from 'react-native';
 import SignIn from './components/auth/signIn';
 import SignUp from './components/auth/signUp';
+import Topics from './components/topics';
 
 const routes = {
     signIn: SignIn,
-    signUp: SignUp
+    signUp: SignUp,
+    topics: Topics
 };
 
 export default class Main extends Component {

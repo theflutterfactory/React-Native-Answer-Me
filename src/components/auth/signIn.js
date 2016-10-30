@@ -23,6 +23,7 @@ export default class SignIn extends Component {
         firebaseApp.auth().onAuthStateChanged(user => {
             if(user) {
                 this.setState({result: user.email + ' is signed in'});
+                this.props.navigator.push({name: 'topics'});
             }
         });
     }
