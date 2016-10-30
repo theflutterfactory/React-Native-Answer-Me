@@ -6,7 +6,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         padding: 40,
-        backgroundColor: 'white'
+        backgroundColor: 'azure'
     },
     input: {
         width: 250,
@@ -41,5 +41,19 @@ export default StyleSheet.create({
     feedback: {
         textAlign: 'center',
         color: 'red'
+    },
+    topics: {
+        flex: 1,
+        backgroundColor: 'azure'
+    },
+    header: {
+        padding: 10,
+        marginTop: 20,
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    body: {
+        flex: 20
     }
 });
