@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 
 import styles from '../styles';
+import {firebaseApp} from './auth/authentication';
 
 export default class Topics extends Component {
     constructor(props) {
@@ -17,7 +18,12 @@ export default class Topics extends Component {
     }
 
     signOut() {
-
+        firebaseApp.auth().signOut()
+        .then(() => {
+            this.props.navigator.popToTop();
+        }, (error) => {
+            console.log(error);
+        });
     }
 
     render() {
