@@ -15,7 +15,8 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         marginTop: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        alignSelf: 'center'
     },
     buttonContainer: {
         justifyContent: 'center',
@@ -49,14 +50,19 @@ export default StyleSheet.create({
     header: {
         padding: 10,
         marginTop: 20,
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     body: {
-        flex: 20
+        alignSelf: 'center'
     },
     title: {
         textAlign: 'center'
+    },
+    row: {
+        alignItems: 'center'
+    },
+    list: {
+        marginTop: 20
     }
 });

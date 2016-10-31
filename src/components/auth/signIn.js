@@ -40,24 +40,22 @@ export default class SignIn extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View>
-                    <Text style={styles.feedback}>{this.state.result}</Text>
-                    <TextInput
-                        placeholder="Email"
-                        style={styles.input}
-                        underlineColorAndroid={'transparent'}
-                        onChangeText={(text) => this.setState({email: text})}/>
-                    <TextInput
-                        placeholder="Password"
-                        style={styles.input}
-                        secureTextEntry={true}
-                        underlineColorAndroid={'transparent'}
-                        onChangeText={(text) => this.setState({password: text})}/>
-                    <TouchableOpacity style={styles.buttonContainer}
-                        onPress={() => this.signIn()}>
-                        <Text style={styles.button}>Sign In</Text>
-                    </TouchableOpacity>
-                </View>
+                <Text style={styles.feedback}>{this.state.result}</Text>
+                <TextInput
+                    placeholder="Email"
+                    style={styles.input}
+                    underlineColorAndroid={'transparent'}
+                    onChangeText={(text) => this.setState({email: text})}/>
+                <TextInput
+                    placeholder="Password"
+                    style={styles.input}
+                    secureTextEntry={true}
+                    underlineColorAndroid={'transparent'}
+                    onChangeText={(text) => this.setState({password: text})}/>
+                <TouchableOpacity style={styles.buttonContainer}
+                    onPress={() => this.signIn()}>
+                    <Text style={styles.button}>Sign In</Text>
+                </TouchableOpacity>
                 <View style={styles.links}>
                     <TouchableOpacity
                         onPress={() => this.props.navigator.push({name: 'signUp'})}>
