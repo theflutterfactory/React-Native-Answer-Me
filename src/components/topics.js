@@ -3,17 +3,24 @@ import {
     View,
     Text,
     TextInput,
-    TouchableOpacity
+    TouchableOpacity,
+    ListView
 } from 'react-native';
 
 import styles from '../styles';
 import {firebaseApp} from './auth/authentication';
+const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
 
 export default class Topics extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            displayName: ''
+            displayName: '',
+            title: '',
+            dataSource: ds.cloneWithRows([{
+                title: 'Why is the sky blue',
+                author: 'George'
+            }])
         };
     }
 
@@ -40,6 +47,25 @@ export default class Topics extends Component {
         });
     }
 
+    renderRow(rowData) {
+        return (
+            <View style={styles.row}>
+                <Text>
+                    {rowData.title}
+                </Text>
+                <Text>
+                    {rowData.author}
+                </Text>
+            </View>
+        );
+    }
+
+    renderSeparator(sectionID, rowID) {
+        return (
+            <View style={styles.separator} key={sectionID + rowID} />
+        );
+    }
+
     render() {
         return (
             <View style={styles.topics}>
@@ -50,7 +76,18 @@ export default class Topics extends Component {
                     </TouchableOpacity>
                     <Text style={styles.title}>{this.state.displayName}</Text>
                 </View>
-                <View style={styles.body}></View>
+                <View style={styles.body}>
+                    <TextInput
+                        placeholder='Something on your mind?'
+                        style={styles.input}
+                        onChangeText={(text) => this.setState({title: text})}/>
+                </View>
+                <ListView
+                    style={styles.list}
+                    enableEmptySections={true}
+                    dataSource={this.state.dataSource}
+                    renderSeparator={this.renderSeparator}
+                    renderRow={(rowData) => this.renderRow(rowData)}/>
             </View>
         );
     }
