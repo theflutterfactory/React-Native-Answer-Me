@@ -5,11 +5,13 @@ import {
 import SignIn from './components/auth/signIn';
 import SignUp from './components/auth/signUp';
 import Topics from './components/topics';
+import ChooseName from './components/auth/chooseName';
 
 const routes = {
     signIn: SignIn,
     signUp: SignUp,
-    topics: Topics
+    topics: Topics,
+    chooseName: ChooseName
 };
 
 export default class Main extends Component {

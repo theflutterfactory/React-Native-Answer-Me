@@ -55,5 +55,8 @@ export default StyleSheet.create({
     },
     body: {
         flex: 20
+    },
+    title: {
+        textAlign: 'center'
     }
 });

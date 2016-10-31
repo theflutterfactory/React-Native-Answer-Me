@@ -17,6 +17,20 @@ export default class Topics extends Component {
         };
     }
 
+    componentDidMount() {
+        let user = firebaseApp.auth().currentUser;
+
+        if (!user.displayName) {
+            this.props.navigator.push({
+                name: 'chooseName'
+            });
+        } else {
+            this.setState({
+                displayName: user.displayName
+            });
+        }
+    }
+
     signOut() {
         firebaseApp.auth().signOut()
         .then(() => {
