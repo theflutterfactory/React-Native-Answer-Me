@@ -7,12 +7,14 @@ import SignUp from './components/auth/signUp';
 import Topics from './components/topics';
 import ChooseName from './components/auth/chooseName';
 import TopicDetail from './components/topicDetail';
+import ForgotPassword from './components/auth/forgotPassword';
 
 const routes = {
     signIn: SignIn,
     signUp: SignUp,
     topics: Topics,
     chooseName: ChooseName,
+    forgotPassword: ForgotPassword,
     topicDetail: TopicDetail
 };
 

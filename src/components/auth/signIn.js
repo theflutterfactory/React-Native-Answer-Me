@@ -61,7 +61,9 @@ export default class SignIn extends Component {
                         onPress={() => this.props.navigator.push({name: 'signUp'})}>
                         <Text style={styles.link}>Sign Up</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() =>
+                            this.props.navigator.push({name: 'forgotPassword'})}>
                         <Text style={styles.link}>Forgot Password</Text>
                     </TouchableOpacity>
                 </View>
