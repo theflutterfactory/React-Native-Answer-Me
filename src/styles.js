@@ -59,6 +59,10 @@ export default StyleSheet.create({
     title: {
         textAlign: 'center'
     },
+    mainTitle: {
+        fontFamily: 'Elegante-Regular' ,
+        fontSize: 50
+    },
     row: {
         alignItems: 'center',
         backgroundColor: 'white',

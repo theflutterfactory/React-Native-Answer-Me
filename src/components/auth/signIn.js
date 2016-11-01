@@ -40,6 +40,7 @@ export default class SignIn extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <Text style={styles.mainTitle}>Answer Me</Text>
                 <Text style={styles.feedback}>{this.state.result}</Text>
                 <TextInput
                     placeholder="Email"
