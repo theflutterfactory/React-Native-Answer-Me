@@ -78,6 +78,13 @@ export default class Topics extends Component {
         );
     }
 
+    addTopic() {
+        topicsRef.push({
+            title: this.state.title,
+            author: this.state.displayName
+        });
+    }
+
     render() {
         return (
             <View style={styles.topics}>
@@ -92,7 +99,8 @@ export default class Topics extends Component {
                     <TextInput
                         placeholder='Something on your mind?'
                         style={styles.input}
-                        onChangeText={(text) => this.setState({title: text})}/>
+                        onChangeText={(text) => this.setState({title: text})}
+                        onSubmitEditing={() => this.addTopic()}/>
                 </View>
                 <ListView
                     style={styles.list}
