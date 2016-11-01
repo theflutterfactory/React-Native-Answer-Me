@@ -4,11 +4,12 @@ A simple real-time QA app backed by Firebase. You will need to enter your own Fi
 + User Sign In / Sign Up with error validation
 + User Sign Out
 + Users can choose their own display name after signing up
-+ Retreive list of topics/questions from Firebase backend in real time
++ Retrieve list of topics/questions from Firebase backend in real time
 + Submit new topics/questions in real time
 + Any user can comment on existing topics/questions
 + Can easily reset your password via an email
-+ Customized font using rnpm
++ Customized font using rnpm https://github.com/rnpm/rnpm
++ Component Testing using Jest
 
 ![Signing In](screenshots/signin.png)
 ![Signing Up](screenshots/signup.png)
