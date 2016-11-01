@@ -15,13 +15,15 @@
         "preset": "jest-react-native"
     },
     "rnpm": {
-        "assets": ["src/assets/fonts"]
+        "assets": [
+            "src/assets/fonts"
+        ]
     },
     "devDependencies": {
-        "babel-jest": "16.0.0",
-        "babel-preset-react-native": "1.9.0",
-        "jest": "16.0.2",
-        "jest-react-native": "16.0.0",
-        "react-test-renderer": "15.3.2"
+        "babel-jest": "^16.0.0",
+        "babel-preset-react-native": "^1.9.0",
+        "jest": "^16.0.2",
+        "jest-react-native": "^16.0.0",
+        "react-test-renderer": "^15.3.2"
     }
 }
