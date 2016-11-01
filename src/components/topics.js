@@ -23,17 +23,18 @@ export default class Topics extends Component {
 
     componentDidMount() {
         let user = firebaseApp.auth().currentUser;
+        if (user != null) {
+            if (!user.displayName) {
+                this.props.navigator.push({
+                    name: 'chooseName'
+                });
+            } else {
+                this.setState({
+                    displayName: user.displayName
+                });
 
-        if (!user.displayName) {
-            this.props.navigator.push({
-                name: 'chooseName'
-            });
-        } else {
-            this.setState({
-                displayName: user.displayName
-            });
-
-            this.listenForItems(topicsRef);
+                this.listenForItems(topicsRef);
+            }
         }
     }
 
