@@ -7,6 +7,7 @@ import {
     ListView
 } from 'react-native';
 import styles from '../styles';
+import {topicsRef} from './auth/authentication';
 
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
 
@@ -15,12 +16,45 @@ export default class TopicDetail extends Component {
         super(props);
         this.state = {
             comment: '',
-            dataSource: ds.cloneWithRows([])
+            dataSource: ds.cloneWithRows([]),
+            commentsRef: ''
         };
     }
 
-    postComment() {
+    componentDidMount() {
+        const commentsRef = topicsRef.child(this.props.row_uid)
+        .child('comments');
+        this.setState({commentsRef});
+        this.listenForItems(commentsRef);
+    }
 
+    listenForItems(ref) {
+        ref.on('value', snapshot => {
+            let comments = [];
+            snapshot.forEach(child => {
+                comments.push({
+                    comment: child.val().comment,
+                    author: child.val().author
+                });
+            });
+            this.setState({dataSource: ds.cloneWithRows(comments)});
+        });
+    }
+
+    postComment() {
+        this.state.commentsRef.push({
+            comment: this.state.comment,
+            author: this.props.displayName
+        });
+    }
+
+    renderRow(data) {
+        return (
+            <View style={styles.row}>
+                <Text>{data.comment}</Text>
+                <Text>{data.author}</Text>
+            </View>
+        );
     }
 
     render() {
@@ -39,7 +73,7 @@ export default class TopicDetail extends Component {
                         style={styles.input}
                         placeholder='Add your thoughts'
                         onChangeText={(text) => this.setState({comment: text})}
-                        onSubmitEditing={() => this.postComments()}>
+                        onSubmitEditing={() => this.postComment()}>
                     </TextInput>
                     <ListView
                         style={styles.list}
