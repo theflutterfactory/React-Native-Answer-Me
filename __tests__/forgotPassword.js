@@ -6,7 +6,8 @@ import ForgotPassword from '../src/components/auth/forgotPassword';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <ForgotPassword />
-  );
+    const tree = renderer.create(
+        <ForgotPassword />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
 });

@@ -6,7 +6,8 @@ import Main from '../src/main';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <Main />
-  );
+    const tree = renderer.create(
+        <Main />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
 });

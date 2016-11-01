@@ -6,7 +6,8 @@ import ChooseName from '../src/components/auth/chooseName';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <ChooseName />
-  );
+    const tree = renderer.create(
+        <ChooseName />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
 });

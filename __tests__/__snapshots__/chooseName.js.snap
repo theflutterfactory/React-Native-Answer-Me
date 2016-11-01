@@ -1,0 +1,77 @@
+exports[`test renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "azure",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 40,
+    }
+  }>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }>
+    Choose a display Name
+  </Text>
+  <TextInput
+    onChangeText={[Function]}
+    placeholder="Name"
+    style={
+      Object {
+        "alignSelf": "center",
+        "borderColor": "black",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "height": 50,
+        "marginTop": 10,
+        "textAlign": "center",
+        "width": 250,
+      }
+    } />
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "borderColor": "black",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "height": 50,
+        "justifyContent": "center",
+        "marginTop": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }>
+      Confirm
+    </Text>
+  </View>
+</View>
+`;

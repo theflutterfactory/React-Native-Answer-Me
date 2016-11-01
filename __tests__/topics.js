@@ -6,7 +6,8 @@ import Topics from '../src/components/topics';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <Topics />
-  );
+    const tree = renderer.create(
+        <Topics />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
 });

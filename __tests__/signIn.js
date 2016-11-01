@@ -6,7 +6,8 @@ import SignIn from '../src/components/auth/signIn';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <SignIn />
-  );
+    const tree = renderer.create(
+        <SignIn />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
 });

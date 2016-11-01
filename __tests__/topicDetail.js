@@ -6,7 +6,8 @@ import TopicDetail from '../src/components/topicDetail';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-  const tree = renderer.create(
-    <TopicDetail />
-  );
+    const tree = renderer.create(
+        <TopicDetail />
+    ).toJSON();
+    expect(tree).toMatchSnapshot();
 });
