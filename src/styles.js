@@ -43,7 +43,7 @@ export default StyleSheet.create({
         textAlign: 'center',
         color: 'red'
     },
-    topics: {
+    flexContainer: {
         flex: 1,
         backgroundColor: 'azure'
     },
@@ -74,5 +74,14 @@ export default StyleSheet.create({
     list: {
         margin: 20,
         flex: 1,
+    },
+    detailTitle: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    detailSubtitle: {
+        textAlign: 'center',
+        fontSize: 14
     }
 });

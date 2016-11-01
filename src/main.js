@@ -6,12 +6,14 @@ import SignIn from './components/auth/signIn';
 import SignUp from './components/auth/signUp';
 import Topics from './components/topics';
 import ChooseName from './components/auth/chooseName';
+import TopicDetail from './components/topicDetail';
 
 const routes = {
     signIn: SignIn,
     signUp: SignUp,
     topics: Topics,
-    chooseName: ChooseName
+    chooseName: ChooseName,
+    topicDetail: TopicDetail
 };
 
 export default class Main extends Component {
@@ -25,9 +27,14 @@ export default class Main extends Component {
 
     renderScene(route, navigator) {
         let Component = routes[route.name];
+        let {displayName, title, author, row_uid} = route;
         return (
             <Component
-                navigator={navigator}/>
+                navigator={navigator}
+                displayName={displayName}
+                title={title}
+                author={author}
+                row_uid={row_uid}/>
         );
     }
 }

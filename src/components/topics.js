@@ -43,7 +43,8 @@ export default class Topics extends Component {
             snapshot.forEach(topic => {
                 topics.push({
                     title: topic.val().title,
-                    author: topic.val().author
+                    author: topic.val().author,
+                    key: topic.key
                 });
             });
             this.setState({dataSource: ds.cloneWithRows(topics)});
@@ -59,16 +60,27 @@ export default class Topics extends Component {
         });
     }
 
+    details(data) {
+        this.props.navigator.push({
+            name: 'topicDetail',
+            displayName: this.state.displayName,
+            title: data.title,
+            author: data.author,
+            row_uid: data.key
+        });
+    }
+
     renderRow(rowData) {
         return (
-            <View style={styles.row}>
+            <TouchableOpacity style={styles.row}
+                onPress={() => this.details(rowData)}>
                 <Text style={styles.rowTitle}>
                     {rowData.title}
                 </Text>
                 <Text>
                     {rowData.author}
                 </Text>
-            </View>
+            </TouchableOpacity>
         );
     }
 
@@ -87,7 +99,7 @@ export default class Topics extends Component {
 
     render() {
         return (
-            <View style={styles.topics}>
+            <View style={styles.flexContainer}>
                 <View style={styles.header}>
                     <TouchableOpacity
                         onPress={() => this.signOut()}>
