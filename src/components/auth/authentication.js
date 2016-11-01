@@ -9,3 +9,4 @@ const config = {
 };
 
 export const firebaseApp = firebase.initializeApp(config);
+export const topicsRef = firebase.database().ref();

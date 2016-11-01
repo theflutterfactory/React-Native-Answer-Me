@@ -60,9 +60,19 @@ export default StyleSheet.create({
         textAlign: 'center'
     },
     row: {
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderColor: 'black',
+        borderWidth: 1,
+        padding: 10,
+        margin: 4,
+        borderRadius: 5
+    },
+    rowTitle: {
+        fontWeight: 'bold'
     },
     list: {
-        marginTop: 20
+        margin: 20,
+        flex: 1,
     }
 });

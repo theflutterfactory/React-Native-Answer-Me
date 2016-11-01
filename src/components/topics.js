@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import styles from '../styles';
-import {firebaseApp} from './auth/authentication';
+import {firebaseApp, topicsRef} from './auth/authentication';
 const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
 
 export default class Topics extends Component {
@@ -17,10 +17,7 @@ export default class Topics extends Component {
         this.state = {
             displayName: '',
             title: '',
-            dataSource: ds.cloneWithRows([{
-                title: 'Why is the sky blue',
-                author: 'George'
-            }])
+            dataSource: ds.cloneWithRows([])
         };
     }
 
@@ -35,7 +32,22 @@ export default class Topics extends Component {
             this.setState({
                 displayName: user.displayName
             });
+
+            this.listenForItems(topicsRef);
         }
+    }
+
+    listenForItems(ref) {
+        ref.on('value', (snapshot) => {
+            let topics = [];
+            snapshot.forEach(topic => {
+                topics.push({
+                    title: topic.val().title,
+                    author: topic.val().author
+                });
+            });
+            this.setState({dataSource: ds.cloneWithRows(topics)});
+        });
     }
 
     signOut() {
@@ -50,7 +62,7 @@ export default class Topics extends Component {
     renderRow(rowData) {
         return (
             <View style={styles.row}>
-                <Text>
+                <Text style={styles.rowTitle}>
                     {rowData.title}
                 </Text>
                 <Text>
