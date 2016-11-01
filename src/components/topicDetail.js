@@ -22,10 +22,14 @@ export default class TopicDetail extends Component {
     }
 
     componentDidMount() {
-        const commentsRef = topicsRef.child(this.props.row_uid)
-        .child('comments');
-        this.setState({commentsRef});
-        this.listenForItems(commentsRef);
+        let id = this.props.row_uid;
+
+        if (id != null) {
+            const commentsRef = topicsRef.child(id)
+            .child('comments');
+            this.setState({commentsRef});
+            this.listenForItems(commentsRef);
+        }
     }
 
     listenForItems(ref) {
