@@ -24,16 +24,24 @@ export default EStyleSheet.create({
         alignSelf: 'center'
     },
     buttonContainer: {
+        '@media ios': {
+            borderColor: 'black',
+            borderWidth: 1,
+            borderRadius: 5
+        },
+        '@media android': {
+            backgroundColor: 'black'
+        },
         justifyContent: 'center',
         height: 50,
         width: 250,
-        marginTop: 10,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 5
+        marginTop: 10
     },
     button: {
-        textAlign: 'center'
+        textAlign: 'center',
+        '@media android': {
+            color: 'white'
+        }
     },
     link: {
         marginTop: 10,
