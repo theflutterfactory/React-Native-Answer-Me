@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
-export default StyleSheet.create({
+EStyleSheet.build();
+
+export default EStyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -9,11 +12,13 @@ export default StyleSheet.create({
         backgroundColor: 'azure'
     },
     input: {
+        '@media ios': {
+            borderColor: 'black',
+            borderWidth: 1,
+            borderRadius: 5
+        },
         width: 250,
         height: 50,
-        borderColor: 'black',
-        borderWidth: 1,
-        borderRadius: 5,
         marginTop: 10,
         textAlign: 'center',
         alignSelf: 'center'
@@ -64,13 +69,15 @@ export default StyleSheet.create({
         fontSize: 50
     },
     row: {
-        alignItems: 'center',
-        backgroundColor: 'white',
+        '@media ios': {
+            borderRadius: 5
+        },
         borderColor: 'black',
         borderWidth: 1,
+        alignItems: 'center',
+        backgroundColor: 'white',
         padding: 10,
-        margin: 4,
-        borderRadius: 5
+        margin: 4
     },
     rowTitle: {
         fontWeight: 'bold'
