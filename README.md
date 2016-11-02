@@ -19,3 +19,5 @@ A simple real-time QA app backed by Firebase. You will need to enter your own Fi
 ![Reset Password](screenshots/reset_password.png)
 ![Bad Email Format](screenshots/bad_email.png)
 ![Passwords Don't Match](screenshots/password_mismatch.png)
+
+* First five screenshots are Android, last 3 are iOS
