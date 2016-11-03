@@ -66,8 +66,7 @@ export default class TopicDetail extends Component {
             <View style={styles.flexContainer}>
                 <View style={styles.header}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigator.pop()}
-                    >
+                        onPress={() => this.props.navigator.pop()}>
                         <Text style={styles.link}>Back</Text>
                     </TouchableOpacity>
                 </View>
@@ -78,14 +77,12 @@ export default class TopicDetail extends Component {
                         style={styles.input}
                         placeholder='Add your thoughts'
                         onChangeText={(text) => this.setState({ comment: text })}
-                        onSubmitEditing={() => this.postComment()}
-                    />
+                        onSubmitEditing={() => this.postComment()} />
                     <ListView
                         style={styles.list}
                         enableEmptySections
                         dataSource={this.state.dataSource}
-                        renderRow={(rowData) => this.renderRow(rowData)}
-                    />
+                        renderRow={(rowData) => this.renderRow(rowData)} />
                 </View>
             </View>
         );
