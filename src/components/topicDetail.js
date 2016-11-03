@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     View,
     Text,
@@ -7,9 +7,9 @@ import {
     ListView
 } from 'react-native';
 import styles from '../styles';
-import {topicsRef} from './auth/authentication';
+import { topicsRef } from './auth/authentication';
 
-const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 != r2});
+const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
 export default class TopicDetail extends Component {
     constructor(props) {
@@ -22,26 +22,26 @@ export default class TopicDetail extends Component {
     }
 
     componentDidMount() {
-        let id = this.props.row_uid;
+        const id = this.props.row_uid;
 
         if (id != null) {
             const commentsRef = topicsRef.child(id)
             .child('comments');
-            this.setState({commentsRef});
+            this.setState({ commentsRef });
             this.listenForItems(commentsRef);
         }
     }
 
     listenForItems(ref) {
         ref.on('value', snapshot => {
-            let comments = [];
+            const comments = [];
             snapshot.forEach(child => {
                 comments.push({
                     comment: child.val().comment,
                     author: child.val().author
                 });
             });
-            this.setState({dataSource: ds.cloneWithRows(comments)});
+            this.setState({ dataSource: ds.cloneWithRows(comments) });
         });
     }
 
@@ -66,7 +66,8 @@ export default class TopicDetail extends Component {
             <View style={styles.flexContainer}>
                 <View style={styles.header}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigator.pop()}>
+                        onPress={() => this.props.navigator.pop()}
+                    >
                         <Text style={styles.link}>Back</Text>
                     </TouchableOpacity>
                 </View>
@@ -76,14 +77,15 @@ export default class TopicDetail extends Component {
                     <TextInput
                         style={styles.input}
                         placeholder='Add your thoughts'
-                        onChangeText={(text) => this.setState({comment: text})}
-                        onSubmitEditing={() => this.postComment()}>
-                    </TextInput>
+                        onChangeText={(text) => this.setState({ comment: text })}
+                        onSubmitEditing={() => this.postComment()}
+                    />
                     <ListView
                         style={styles.list}
-                        enableEmptySections={true}
+                        enableEmptySections
                         dataSource={this.state.dataSource}
-                        renderRow={(rowData) => this.renderRow(rowData)}/>
+                        renderRow={(rowData) => this.renderRow(rowData)}
+                    />
                 </View>
             </View>
         );

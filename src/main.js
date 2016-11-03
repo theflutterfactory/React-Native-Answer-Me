@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Navigator
 } from 'react-native';
@@ -19,24 +19,24 @@ const routes = {
 };
 
 export default class Main extends Component {
-    render() {
-        return (
-            <Navigator
-                initialRoute={{name: 'signIn'}}
-                renderScene={this.renderScene}/>
-        );
-    }
-
     renderScene(route, navigator) {
-        let Component = routes[route.name];
-        let {displayName, title, author, row_uid} = route;
+        const Component = routes[route.name];
+        const { displayName, title, author, rowUid } = route;
         return (
             <Component
                 navigator={navigator}
                 displayName={displayName}
                 title={title}
                 author={author}
-                row_uid={row_uid}/>
+                row_uid={rowUid} />
+        );
+    }
+
+    render() {
+        return (
+            <Navigator
+                initialRoute={{ name: 'signIn' }}
+                renderScene={this.renderScene} />
         );
     }
 }
