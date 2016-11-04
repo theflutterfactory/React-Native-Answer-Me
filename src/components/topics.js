@@ -26,7 +26,7 @@ export default class Topics extends Component {
     if (user != null) {
       if (!user.displayName) {
         this.props.navigator.push({
-          name: 'chooseName'
+          name: 'ChooseName'
         });
       } else {
         this.setState({
@@ -63,7 +63,7 @@ export default class Topics extends Component {
 
   details(data) {
     this.props.navigator.push({
-      name: 'topicDetail',
+      name: 'TopicDetail',
       displayName: this.state.displayName,
       title: data.title,
       author: data.author,
@@ -115,7 +115,7 @@ export default class Topics extends Component {
           <TextInput
             placeholder='Something on your mind?'
             style={styles.input}
-            onChangeText={(text) => this.setState({ title: text })}
+            onChangeText={(title) => this.setState({ title })}
             onSubmitEditing={() => this.addTopic()} />
         </View>
         <ListView

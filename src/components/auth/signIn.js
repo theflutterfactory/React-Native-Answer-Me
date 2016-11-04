@@ -22,7 +22,7 @@ export default class SignIn extends Component {
         firebaseApp.auth().onAuthStateChanged(user => {
             if (user) {
                 this.setState({ result: '' });
-                this.props.navigator.push({ name: 'topics' });
+                this.props.navigator.push({ name: 'Topics' });
             }
         });
     }
@@ -44,12 +44,12 @@ export default class SignIn extends Component {
                 <TextInput
                     placeholder="Email"
                     style={styles.input}
-                    onChangeText={(text) => this.setState({ email: text })} />
+                    onChangeText={(email) => this.setState({ email })} />
                 <TextInput
                     placeholder="Password"
                     style={styles.input}
                     secureTextEntry
-                    onChangeText={(text) => this.setState({ password: text })} />
+                    onChangeText={(password) => this.setState({ password })} />
                 <TouchableOpacity
                     style={styles.buttonContainer}
                     onPress={() => this.signIn()}>
@@ -57,12 +57,12 @@ export default class SignIn extends Component {
                 </TouchableOpacity>
                 <View style={styles.links}>
                     <TouchableOpacity
-                        onPress={() => this.props.navigator.push({ name: 'signUp' })}>
+                        onPress={() => this.props.navigator.push({ name: 'SignUp' })}>
                         <Text style={styles.link}>Sign Up</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() =>
-                            this.props.navigator.push({ name: 'forgotPassword' })}>
+                            this.props.navigator.push({ name: 'ForgotPassword' })}>
                         <Text style={styles.link}>Forgot Password</Text>
                     </TouchableOpacity>
                 </View>

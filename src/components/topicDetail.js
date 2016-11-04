@@ -76,7 +76,7 @@ export default class TopicDetail extends Component {
                     <TextInput
                         style={styles.input}
                         placeholder='Add your thoughts'
-                        onChangeText={(text) => this.setState({ comment: text })}
+                        onChangeText={(comment) => this.setState({ comment })}
                         onSubmitEditing={() => this.postComment()} />
                     <ListView
                         style={styles.list}

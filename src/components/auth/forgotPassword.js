@@ -32,7 +32,7 @@ export default class ForgotPassword extends Component {
         <TextInput
           placeholder='Email'
           style={styles.input}
-          onChangeText={(text) => this.setState({ email: text })} />
+          onChangeText={(email) => this.setState({ email })} />
         <View style={styles.links}>
           <TouchableOpacity
             onPress={() => this.props.navigator.pop()}>

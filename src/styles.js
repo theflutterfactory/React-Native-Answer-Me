@@ -1,4 +1,3 @@
-import { StyleSheet } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 EStyleSheet.build();
@@ -73,7 +72,7 @@ export default EStyleSheet.create({
         textAlign: 'center'
     },
     mainTitle: {
-        fontFamily: 'Elegante-Regular' ,
+        fontFamily: 'Elegante-Regular',
         fontSize: 50
     },
     row: {

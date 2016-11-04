@@ -34,7 +34,7 @@ export default class ChooseName extends Component {
         <TextInput
           placeholder="Name"
           style={styles.input}
-          onChangeText={(text) => this.setState({ name: text })} />
+          onChangeText={(name) => this.setState({ name })} />
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => this.updateDisplayName()}>

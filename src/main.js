@@ -10,32 +10,32 @@ import TopicDetail from './components/topicDetail';
 import ForgotPassword from './components/auth/forgotPassword';
 
 const routes = {
-    signIn: SignIn,
-    signUp: SignUp,
-    topics: Topics,
-    chooseName: ChooseName,
-    forgotPassword: ForgotPassword,
-    topicDetail: TopicDetail
+    SignIn,
+    SignUp,
+    Topics,
+    ChooseName,
+    ForgotPassword,
+    TopicDetail
 };
 
 export default class Main extends Component {
     renderScene(route, navigator) {
         const Component = routes[route.name];
-        const { displayName, title, author, rowUid } = route;
+        const { displayName, title, author, row_uid } = route;
         return (
             <Component
                 navigator={navigator}
                 displayName={displayName}
                 title={title}
                 author={author}
-                row_uid={rowUid} />
+                row_uid={row_uid} />
         );
     }
 
     render() {
         return (
             <Navigator
-                initialRoute={{ name: 'signIn' }}
+                initialRoute={{ name: 'SignIn' }}
                 renderScene={this.renderScene} />
         );
     }
